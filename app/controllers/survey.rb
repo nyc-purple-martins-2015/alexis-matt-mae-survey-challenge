@@ -25,6 +25,12 @@ get '/surveys/:survey_id/questions/new' do
 end
 
 post '/surveys/:survey_id/questions/new' do
-  content_type :text
-  params.inspect
+  @survey = Survey.find(params[:survey_id])
+  survey_id = @survey.id
+  @question = Question.create(prompt: params[:question][:prompt], survey_id: survey_id)
+  @choice_array = params[:question][:choice]
+  @choice_array.each do |choice|
+    Choice.create(selection: choice, question_id: @question.id)
+  end
+  redirect "/surveys/#{@survey.id}/questions/new"
 end
