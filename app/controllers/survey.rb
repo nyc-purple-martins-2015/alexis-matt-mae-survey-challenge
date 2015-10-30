@@ -1,5 +1,11 @@
+get '/surveys/index' do
+  @user = User.find(session[:user_id])
+  @survey = Survey.new
+  erb :'surveys/index'
+end
+
 get '/surveys/new' do
-  erb :"survey/create"
+  erb :"surveys/create"
 end
 
 post '/surveys/new' do

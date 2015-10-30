@@ -1,13 +1,11 @@
 body {
-    background-color: gray;
+    background-color: white;
     background-image: ;
 }
 
 header {
     text-align: center;
     font-size: 10em;
-    border-bottom: 1px solid black;
-
 }
 
 #content {
@@ -56,4 +54,30 @@ header {
         background-color: black;
         text-align: right;
 }
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+}
+
+.login-welcome {
+    font-family: Lato;
+    font-size: 2em;
+    text-align: center;
+    background-color: #77b93d;
+    padding: 1em;
+}
+
+.survey-link {
+    color: black;
+    /*text-decoration: none;*/
+    font-size: 2em;
+}
+
+.create-survey-form {
+    background-color: #77b93d;
+    /*TODO: break each form box to a new line*/
+}
+
+
 

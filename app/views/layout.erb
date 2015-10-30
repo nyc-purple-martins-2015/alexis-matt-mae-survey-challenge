@@ -12,7 +12,7 @@
   -->
   <link rel="stylesheet" href="/css/application.css">
 
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato&effect=destruction">
 
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -21,16 +21,18 @@
   <title>SurveyFrog: Leap Over Your Competition</title>
 </head>
 <body>
-  <header>SurveyFrog</header>
+  <header class="font-effect-destruction">SurveyFrog</header>
   <div class="menu">
 <!--     TODO: Abstract out line 27 into helper method
- -->    <% if !!session[:id] %>
-    <ul class="navbar">
+ -->
+  <% if !!session[:user_id] %>
+     <ul class="navbar">
       <li>
-        <a href="/logout">Logout</a>
-        <a href="/users/#"><%= @user.username %></a>
+        <a href="/logout">Logout |</a>
+        <a href="/users/"#{@user.id}""><%= User.find(session[:user_id]).username %></a>
       </li>
     </ul>
+    <% end %>
   </div>
 <div id="content">
   <%= yield %>
