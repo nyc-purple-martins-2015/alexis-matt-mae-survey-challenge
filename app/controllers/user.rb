@@ -7,7 +7,7 @@ post '/login' do
   @user = User.find_by(username: params[:user][:username])
   if @user && @user.authenticate(params[:user][:password])
     session[:user_id] = @user.id
-    redirect '/create-survey'
+    redirect '/surveys/index'
   else
     @error = "Incorrect username or password."
     erb :"users/login"
