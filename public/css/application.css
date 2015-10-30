@@ -1,5 +1,5 @@
 body {
-    background-color: gray;
+    background-color: white;
     background-image: ;
 }
 
@@ -53,6 +53,11 @@ header {
         padding: 5px;
         background-color: black;
         text-align: right;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
 }
 
 .login-welcome {

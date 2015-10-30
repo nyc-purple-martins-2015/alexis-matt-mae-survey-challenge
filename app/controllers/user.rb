@@ -21,7 +21,7 @@ post '/signup' do
     session[:user_id] = @user.id
     redirect '/create-survey'
   else
-    @error = "Bad signup."
+    @error = "Bad signup!"
     erb :"users/login"
   end
 end
