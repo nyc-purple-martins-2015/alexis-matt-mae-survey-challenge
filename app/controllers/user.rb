@@ -30,3 +30,8 @@ get '/logout' do
   session.clear
   redirect "/login"
 end
+
+get '/users/:id' do |id|
+  @user = User.find(id)
+  erb :"users/profile"
+end
