@@ -1,0 +1,26 @@
+<div class="errors">
+  <% if @error %>
+    <%= @error %>
+  <% end %>
+</div>
+
+<p class="form-title">Please login </p>
+<div class="login-form">
+  <form method="post" action="/login">
+    <label>username:</label>
+    <input type="text" name="user[username]"placeholder="Ex: akls123">
+    <label>password:</label>
+    <input type="password" name="user[password]" placeholder="Password"><input type="submit" value="login">
+  </form>
+</div>
+
+
+<p class="form-title">Please register</p>
+<div class="signup-form">
+  <form method="post" action="/signup">
+    <label>username:</label>
+    <input type="text" name="new_user[username]" placeholder="Ex: akls123">
+    <label>password:</label>
+    <input type="password" name="new_user[password]" placeholder="Password"><input type="submit" value="signup">
+  </form>
+</div>
