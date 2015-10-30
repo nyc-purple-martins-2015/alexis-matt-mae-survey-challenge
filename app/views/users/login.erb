@@ -4,23 +4,23 @@
   <% end %>
 </div>
 
-<p>Please login </p>
+<p class="form-title">Please login </p>
 <div class="login-form">
   <form method="post" action="/login">
     <label>username:</label>
-    <input type="text" name="user[username]">
+    <input type="text" name="user[username]"placeholder="Ex: akls123">
     <label>password:</label>
-    <input type="password" name="user[password]"><input type="submit" value="login">
+    <input type="password" name="user[password]" placeholder="Password"><input type="submit" value="login">
   </form>
 </div>
 
 
-<p>Please register</p>
+<p class="form-title">Please register</p>
 <div class="signup-form">
   <form method="post" action="/signup">
     <label>username:</label>
-    <input type="text" name="new_user[username]">
+    <input type="text" name="new_user[username]" placeholder="Ex: akls123">
     <label>password:</label>
-    <input type="password" name="new_user[password]"><input type="submit" value="signup">
+    <input type="password" name="new_user[password]" placeholder="Password"><input type="submit" value="signup">
   </form>
 </div>
