@@ -1,0 +1,15 @@
+<form class="create-questions-form" method="post" action="/surveys/<%= @survey.id %>/questions/new">
+
+  <div class="create-question">
+    <label for="prompt">Question:</label>
+    <textarea id="prompt" name="question[prompt]" placeholder="Enter Question Here"></textarea>
+  </div>
+
+  <div class="question-choice-field">
+    <label class="choice-input" for="choice">Choice:</label>
+    <input class="choice-input" type="text" name="question[choice][]" placeholder="Enter Choice Here"></input>
+  </div>
+
+  <input class="add-choice" type="button" value="Add Choice"></input>
+  <input type="submit" value="Create Question"></input>
+</form>
