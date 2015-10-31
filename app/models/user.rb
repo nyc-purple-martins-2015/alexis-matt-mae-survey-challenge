@@ -8,7 +8,16 @@ class User < ActiveRecord::Base
 
 
   def list_surveys_created
-    @array_of_survey_objects = self.surveys
+    @surveys = self.surveys
+  end
+
+  def list_surveys_taken
+    @surveys_taken = self.user_responses
+    @surveys = @surveys_taken.flat_map {|survey| Survey.where(id: survey.survey_id) }.uniq
   end
 
 end
+
+# surveys.map do |surve
+
+# surveys.map {|survey| Survey.where(id: survey.survey_id)}.flatten.map{|survey| survey.title}.uniq.join("")
