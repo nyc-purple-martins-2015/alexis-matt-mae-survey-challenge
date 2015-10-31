@@ -25,11 +25,26 @@ post '/surveys/new' do # ask about refactoring our crazy survey creation
   end
 end
 
+# get '/surveys/:id' do
+#   @survey = Survey.find(params[:id])
+#   @questions = @survey.questions
+#   @user = User.find(@survey.user_id)
+#   erb :"surveys/show"
+# end
+
 get '/surveys/:id' do
   @survey = Survey.find(params[:id])
+  @user = User.find(session[:user_id])
   @questions = @survey.questions
-  @user = User.find(@survey.user_id)
-  erb :"surveys/show"
+  erb :"surveys/take"
+end
+
+post '/surveys/:id' do
+  @survey = Survey.find(params[:id])
+  @user = User.find(session[:user_id])
+  @questions = @survey.questions
+  # @user_responses = params[:userresponses][:choice]
+  binding.pry
 end
 
 get '/surveys/:survey_id/questions/new' do
