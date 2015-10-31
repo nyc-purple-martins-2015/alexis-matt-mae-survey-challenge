@@ -1,7 +1,7 @@
 <div>
   <p><%= question.prompt %></p>
     <% question.choices.each do |choice| %>
-      <input id="<%=question.id%>" type="radio" name="userresponses[choice<%=question.id%>]" value="<%=choice.selection%>" />
+      <input id="<%=question.id%>" type="radio" name="userresponses[question<%=question.id%>]" value="<%=choice.id%>" />
       <option value="<%= choice.selection %>"><%= choice.selection %></option>
     <% end %>
 </div>

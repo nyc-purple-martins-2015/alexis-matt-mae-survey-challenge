@@ -43,8 +43,11 @@ post '/surveys/:id' do
   @survey = Survey.find(params[:id])
   @user = User.find(session[:user_id])
   @questions = @survey.questions
-  # @user_responses = params[:userresponses][:choice]
-  binding.pry
+  @user_responses = params[:userresponses]
+  @user_responses.each do |question, selection|
+    UserResponse.create(choice_id: selection, user_id: @user.id, survey_id: @survey.id)
+  end
+
 end
 
 get '/surveys/:survey_id/questions/new' do
