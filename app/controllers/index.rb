@@ -1,6 +1,6 @@
 get '/' do
   if logged_in?
-    redirect '/surveys/index'
+    redirect '/surveys'
   else
     redirect '/login'
   end

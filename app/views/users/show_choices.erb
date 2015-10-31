@@ -6,7 +6,7 @@
     <li><%= question.prompt %></li>
       <% question.choices.each do |choice| %>
     <ul>
-      <li> <%= choice.selection %>: <%= @survey.user_responses.where(choice_id: choice.id).length
+      <li> <%= choice.selection %>: <%= @user.user_responses.where(choice_id: choice.id).length
 %></li>
     </ul>
       <% end %>

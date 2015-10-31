@@ -7,7 +7,7 @@ post '/login' do
   @user = User.find_by(username: params[:user][:username])
   if @user && @user.authenticate(params[:user][:password])
     session[:user_id] = @user.id
-    redirect '/surveys/index'
+    redirect '/surveys'
   else
     @error = "Incorrect username or password."
     erb :"users/login"
@@ -19,7 +19,7 @@ post '/signup' do
   @user.password = params[:new_user][:password]
   if @user.save
     session[:user_id] = @user.id
-    redirect "/surveys/index"
+    redirect "/surveys"
   else
     @error = "Bad signup!"
     erb :"users/login"

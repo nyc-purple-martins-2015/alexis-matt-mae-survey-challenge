@@ -1,10 +1,7 @@
-<div class="login-welcome">
-  <h2>Welcome back, <%= @user.username %>!</h2>
-  <h3>Do you want to:</h3>
-  <div>
-    <a class="survey-link" href="/surveys/new">Create a survey</a>
-    <p>OR</p>
-    <a class="survey-link" href ="#">Take a survey?</a>
-  </div>
+<div class="survey-list">
+  <ul>
+    <% @surveys.each do |survey| %>
+      <li><a href="/surveys/<%= survey.id %>"><%= survey.title %></li>
+    <% end %>
+  </ul>
 </div>
-
