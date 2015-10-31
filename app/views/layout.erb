@@ -29,6 +29,7 @@
    <% @user = find_user %>
      <ul class="navbar">
       <li>
+        <a href="/surveys/index">Home |</a>
         <a href="/logout">Logout |</a>
         <a href="/users/<%=@user.id %>"><%= find_user.username %></a>
       </li>
