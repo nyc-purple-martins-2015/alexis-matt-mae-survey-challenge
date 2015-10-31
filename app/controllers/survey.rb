@@ -25,12 +25,6 @@ post '/surveys/new' do # ask about refactoring our crazy survey creation
   end
 end
 
-# get '/surveys/:id' do
-#   @survey = Survey.find(params[:id])
-#   @questions = @survey.questions
-#   @user = User.find(@survey.user_id)
-#   erb :"surveys/show"
-# end
 
 get '/surveys/:id' do
   @survey = Survey.find(params[:id])
@@ -44,10 +38,26 @@ post '/surveys/:id' do
   @user = User.find(session[:user_id])
   @questions = @survey.questions
   @user_responses = params[:userresponses]
+  @total_responses = @survey.user_responses
   @user_responses.each do |question, selection|
     UserResponse.create(choice_id: selection, user_id: @user.id, survey_id: @survey.id)
   end
+  redirect "/surveys/#{@survey.id}/taken"
+end
 
+get '/surveys/:id/taken' do
+  @survey = Survey.find(params[:id])
+  @user = User.find(session[:user_id])
+  @questions = @survey.questions
+
+  erb :'users/show_choices'
+end
+
+get '/surveys/:id/finished' do
+  @survey = Survey.find(params[:id])
+  @questions = @survey.questions
+  @user = User.find(@survey.user_id)
+  erb :"surveys/show"
 end
 
 get '/surveys/:survey_id/questions/new' do
