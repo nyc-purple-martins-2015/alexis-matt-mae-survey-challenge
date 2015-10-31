@@ -7,7 +7,7 @@
       <% @list = @user.list_surveys_created %>
       <% @list.each do |item| %>
     <li>
-      <a href="/surveys/<%=item.id%>"> <%= item.title %> </a>
+      <a href="/surveys/<%=item.id%>/finished"> <%= item.title %> </a>
     </li>
       <% end %>
   </ul>
