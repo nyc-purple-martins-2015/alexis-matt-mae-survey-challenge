@@ -4,18 +4,22 @@
 
 <div class="surveys-created">
   <ul> <h4>Surveys Created by <%= @user.username %> </h4>
-    <li>
       <% @list = @user.list_surveys_created %>
       <% @list.each do |item| %>
-      <a href="/surveys/<%=item.id%>"> <%= item.title %> </a>
-      <% end %>
+    <li>
+      <a href="/surveys/<%=item.id%>/finished"> <%= item.title %> </a>
     </li>
+      <% end %>
   </ul>
 </div>
 
 <div class="surveys-taken">
   <ul> <h4>Surveys Taken by <%= @user.username %> </h4>
-    <li>
+      <% @taken_list = @user.list_surveys_taken %>
+      <% @taken_list.each do |survey| %>
+      <li>
+       <a href="/surveys/<%=survey.id%>/taken"><%= survey.title %> </a>
     </li>
+      <% end %>
   </ul>
 </div>
