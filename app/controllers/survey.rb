@@ -1,9 +1,13 @@
-get '/surveys/index' do
+get '/surveys' do
   @user = User.find(session[:user_id])
   @survey = Survey.new
-  erb :'surveys/index'
+  erb :'surveys/home'
 end
 
+get '/surveys/index' do
+
+  erb :'surveys/index'
+end
 
 get '/surveys/new' do
   @survey = Survey.new
@@ -43,3 +47,4 @@ post '/surveys/:survey_id/questions/new' do
   end
   redirect "/surveys/#{@survey.id}/questions/new"
 end
+
