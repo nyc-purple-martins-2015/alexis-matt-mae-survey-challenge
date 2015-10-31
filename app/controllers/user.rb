@@ -19,7 +19,7 @@ post '/signup' do
   @user.password = params[:new_user][:password]
   if @user.save
     session[:user_id] = @user.id
-    redirect '/create-survey'
+    redirect "/surveys/index"
   else
     @error = "Bad signup!"
     erb :"users/login"
