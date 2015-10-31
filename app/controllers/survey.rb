@@ -1,28 +1,31 @@
-
 get '/surveys/index' do
   @user = User.find(session[:user_id])
   @survey = Survey.new
   erb :'surveys/index'
-
-get '/surveys/:id' do
-  @survey = Survey.find(params[:id])
-  @questions = @survey.questions
-  @user = User.find(@survey.user_id)
-  erb :"surveys/show"
 end
 
+
 get '/surveys/new' do
+  @survey = Survey.new
   erb :"surveys/create"
 end
 
-post '/surveys/new' do
-  @survey = Survey.new(params[:survey])
+post '/surveys/new' do # ask about refactoring our crazy survey creation
+  @user = find_user
+  @survey = Survey.new(title: params[:survey][:title], description: params[:survey][:description], user_id: @user.id)
   if @survey.save
     redirect "/surveys/#{@survey.id}/questions/new"
   else
     status 400
     "ERROR. Incorrect User Input. Please try again. "
   end
+end
+
+get '/surveys/:id' do
+  @survey = Survey.find(params[:id])
+  @questions = @survey.questions
+  @user = User.find(@survey.user_id)
+  erb :"surveys/show"
 end
 
 get '/surveys/:survey_id/questions/new' do

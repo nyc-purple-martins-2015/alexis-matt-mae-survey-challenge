@@ -25,11 +25,12 @@
   <div class="menu">
 <!--     TODO: Abstract out line 27 into helper method
  -->
-  <% if !!session[:user_id] %>
+  <% if logged_in? %>
+   <% @user = find_user %>
      <ul class="navbar">
       <li>
         <a href="/logout">Logout |</a>
-        <a href="/users/"#{@user.id}""><%= User.find(session[:user_id]).username %></a>
+        <a href="/users/<%=@user.id %>"><%= find_user.username %></a>
       </li>
     </ul>
     <% end %>
