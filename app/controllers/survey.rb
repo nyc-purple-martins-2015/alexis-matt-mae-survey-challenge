@@ -57,7 +57,7 @@ get '/surveys/:id/finished' do
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
   @user = User.find(@survey.user_id)
-  erb :"surveys/show"
+  erb :"surveys/show", layout: false
 end
 
 get '/surveys/:survey_id/questions/new' do
