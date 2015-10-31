@@ -5,7 +5,7 @@ get '/surveys' do
 end
 
 get '/surveys/index' do
-
+  @surveys = Survey.all
   erb :'surveys/index'
 end
 
