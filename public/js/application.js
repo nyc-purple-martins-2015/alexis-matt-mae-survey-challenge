@@ -11,4 +11,16 @@ $(document).ready(function() {
 
   });
 
+  $(".created-survey-view").on("click", function(event) {
+    event.preventDefault();
+    var id = $(this).attr('id');
+    $.ajax({
+      method: "get",
+      url: $(this).attr('href'),
+    }).done(function(surveyView) {
+      $("#"+id+".created-survey-view").parent().append(surveyView)
+    });
+  });
+
+
 });

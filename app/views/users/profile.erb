@@ -6,8 +6,9 @@
   <ul> <h4>Surveys Created by <%= @user.username %> </h4>
       <% @list = @user.list_surveys_created %>
       <% @list.each do |item| %>
-    <li>
-      <a href="/surveys/<%=item.id%>/finished"> <%= item.title %> </a>
+    <li id="list<%=item.id%>">
+      <a class="created-survey-view" id="<%=item.id%>" href="/surveys/<%=item.id%>/finished"> <%= item.title %> </a>
+      <div class="survey-info"></div>
     </li>
       <% end %>
   </ul>
@@ -18,7 +19,7 @@
       <% @taken_list = @user.list_surveys_taken %>
       <% @taken_list.each do |survey| %>
       <li>
-       <a href="/surveys/<%=survey.id%>/taken"><%= survey.title %> </a>
+       <a class="finished-survey-view" href="/surveys/<%=survey.id%>/taken"><%= survey.title %> </a>
     </li>
       <% end %>
   </ul>
