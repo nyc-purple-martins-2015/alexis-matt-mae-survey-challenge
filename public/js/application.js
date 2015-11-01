@@ -19,7 +19,7 @@ $(document).ready(function() {
       url: $(this).attr('href'),
   }).done(function(surveyView) {
     if ($("#"+id+".created-survey-view").find("#"+id+".created-survey-container").length === 1) {
-        $("#"+id+".created-survey-container").slideToggle()
+        $("#"+id+".created-survey-container").slideToggle();
     } else {
         $("#"+id+".created-survey-view").append(surveyView)
       };
@@ -30,16 +30,28 @@ $(document).ready(function() {
     event.preventDefault();
     var id = $(this).attr('id');
     $.ajax({
-        method: "get",
-        url: $(this).attr('href'),
+      method: "get",
+      url: $(this).attr('href'),
     }).done(function(viewFinished) {
-        console.log("testing");
-        if($('#'+id+".finished-survey-view").find("#"+id+".taken-survey-container").length === 1) {
-           $("#"+id+".taken-survey-container").slideToggle()
+      if($('#'+id+".finished-survey-view").find("#"+id+".taken-survey-container").length === 1) {
+         $("#"+id+".taken-survey-container").slideToggle();
         } else {
-           $("#"+id+".finished-survey-view").append(viewFinished)
+         $("#"+id+".finished-survey-view").append(viewFinished);
         };
       });
     });
+
+  // $(".take-survey-link").on("click", function(event) {
+  //   event.preventDefault();
+  //   var id = $(this).attr('id');
+  // $.ajax({
+  //   method: "get",
+  //   url:$(this).attr('href'),
+  // }).done(function(takeSurvey) {
+  //   $("#"+id+".take-survey-link").replaceWith(takeSurvey)
+
+
+  //  });
+  // });
 
 });
