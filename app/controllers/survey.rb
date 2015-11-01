@@ -50,7 +50,7 @@ get '/surveys/:id/taken' do
   @user = User.find(session[:user_id])
   @questions = @survey.questions
 
-  erb :'users/show_choices'
+  erb :'users/show_choices', layout: false
 end
 
 get '/surveys/:id/finished' do
