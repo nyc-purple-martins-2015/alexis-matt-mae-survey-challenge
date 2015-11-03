@@ -1,4 +1,4 @@
-<div class="take-survey-form">
+<div>
   <form method="post" action="/surveys/<%= @survey.id %>">
   <% @questions.each do |question| %>
     <%= erb :'surveys/question', locals: {question: question}, layout: false %>

@@ -1,9 +1,7 @@
-<h2> <%= @survey.title %> </h2>
-
-<div>
+<div class="created-survey-container" id="<%= @survey.id %>" >
   <ul>
     <% @questions.each do |question| %>
-    <li><%= question.prompt %></li>
+    <li class><%= question.prompt %></li>
       <% question.choices.each do |choice| %>
     <ul>
       <li> <%= choice.selection %>: <%= @survey.user_responses.where(choice_id: choice.id).length
